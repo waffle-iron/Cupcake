@@ -12,7 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Wrong Login!</h1>
+         <header>
+            <h1>iCupCake</h1>
+        </header>
         <a href="index.jsp">til login</a>
     </body>
 </html>

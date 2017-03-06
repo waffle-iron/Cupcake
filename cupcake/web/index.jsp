@@ -4,6 +4,7 @@
     Author     : vfgya_000
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,7 @@
     <body>
         <header>
             <h1>iCupCake</h1>
+           
         </header>
         <main>
             <h2>login</h2>

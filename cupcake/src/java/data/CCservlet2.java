@@ -67,12 +67,14 @@ public class CCservlet2 extends HttpServlet {
                     String bottomType;
                     String toppingType;
                     int bothPrices;
+                    String totalPriceString = request.getParameter("total");
+                    int totalPriceInt = Integer.parseInt(totalPriceString);
                     String btType = request.getParameter("bottom");
                     String tpType = request.getParameter("topping");
 
                     Cupcake cupcake = null;
 
-                    cupcake = new Cupcake(bottomType = btType, toppingType = tpType, bothPrices = 20);
+                    cupcake = new Cupcake(bottomType = btType, toppingType = tpType, bothPrices = totalPriceInt);
                     ccs.add(cupcake);
 
                     request.getSession().setAttribute("ccList", ccs);
@@ -80,9 +82,10 @@ public class CCservlet2 extends HttpServlet {
                 }
                 if (request.getParameter("Checkout") != null) {
                     for (int i = 0; i < ccs.size(); i++) {
-                        dao.insertOrder(usses.getUid(), ccs.get(i).getbType(), ccs.get(i).gettType(),ccs.get(i).getBothPrice());
+                        dao.insertOrder(usses.getUid(), ccs.get(i).getbType(), ccs.get(i).gettType(), ccs.get(i).getBothPrice());
                     }
-                    RequestDispatcher rd = request.getRequestDispatcher("/cupcakeList.jsp");
+                    ccs.clear();
+                    RequestDispatcher rd = request.getRequestDispatcher("/AfterCH.jsp");
                     rd.forward(request, response);
                 }
 
